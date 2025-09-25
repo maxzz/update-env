@@ -1,0 +1,47 @@
+{
+    "name": "update-env-utils",
+    "version": "1.0.0",
+    "description": "A utility package for environment variable management",
+    "author": "Grok and Max Zakharzhevski",
+    "license": "MIT",
+    "keywords": [
+        "environment",
+        "env",
+        "configuration",
+        "utilities",
+        "cli"
+    ],
+    "engines": {
+        "node": ">=16.0.0"
+    },
+    "main": "dist/main.js",
+    "types": "dist/main.d.ts",
+    "bin": {
+        "update-env": "./bin/cli.js"
+    },
+    "files": [
+        "dist/**/*",
+        "bin/**/*",
+        "README.md"
+    ],
+    "devDependencies": {
+        "@types/node": "^20.0.0",
+        "rimraf": "^5.0.0",
+        "typescript": "^5.0.0"
+    },
+    "dependencies": {
+        "commander": "^11.0.0"
+    },
+    "scripts": {
+        "build": "tsc",
+        "dev": "tsc --watch",
+        "clean": "rimraf dist",
+        "prebuild": "npm run clean",
+        "prepublishOnly": "npm run build",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node dist/main.js",
+        "publish:patch": "npm version patch && npm publish",
+        "publish:minor": "npm version minor && npm publish",
+        "publish:major": "npm version major && npm publish"
+    }
+}

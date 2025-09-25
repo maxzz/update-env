@@ -25,15 +25,17 @@ export class EnvUpdater {
         const content = fs.readFileSync(this.envFilePath, 'utf-8');
         const envVars: Record<string, string> = {};
 
-        content.split('\n').forEach((line: string) => {
-            const trimmedLine = line.trim();
-            if (trimmedLine && !trimmedLine.startsWith('#')) {
-                const [key, ...valueParts] = trimmedLine.split('=');
-                if (key && valueParts.length > 0) {
-                    envVars[key.trim()] = valueParts.join('=').trim();
+        content.split('\n').forEach(
+            (line: string) => {
+                const trimmedLine = line.trim();
+                if (trimmedLine && !trimmedLine.startsWith('#')) {
+                    const [key, ...valueParts] = trimmedLine.split('=');
+                    if (key && valueParts.length > 0) {
+                        envVars[key.trim()] = valueParts.join('=').trim();
+                    }
                 }
             }
-        });
+        );
 
         return envVars;
     }
@@ -78,9 +80,11 @@ export class EnvUpdater {
         }
 
         console.log('Environment variables:');
-        Object.entries(envVars).forEach(([key, value]) => {
-            console.log(`${key}=${value}`);
-        });
+        Object.entries(envVars).forEach(
+            ([key, value]) => {
+                console.log(`${key}=${value}`);
+            }
+        );
     }
 
     /**

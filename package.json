@@ -1,5 +1,5 @@
 {
-    "name": "update-env-utils",
+    "name": "update-env",
     "version": "1.0.0",
     "description": "A utility package for environment variable management",
     "author": "Grok and Max Zakharzhevski",
@@ -38,7 +38,6 @@
         "clean": "rimraf dist",
         "prebuild": "npm run clean",
         "prepublishOnly": "npm run build",
-        "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node dist/main.js",
         "publish:patch": "npm version patch && npm publish",
         "publish:minor": "npm version minor && npm publish",
